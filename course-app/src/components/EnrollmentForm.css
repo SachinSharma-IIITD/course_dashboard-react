@@ -1,0 +1,44 @@
+.form-container {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.form-container h3 {
+  margin: 0 0 20px;
+}
+
+.form-container form div {
+  margin-bottom: 10px;
+}
+
+.form-container form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container form input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.form-container form .form-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-container form button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.form-container form button.cancel-button {
+  background-color: #dc3545;
+}

@@ -1,0 +1,39 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-details {
+  flex: 1;
+}
+
+.card-details h3 {
+  margin: 0 0 10px;
+}
+
+.card-details p {
+  margin: 0 0 10px;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-buttons a {
+  margin-bottom: 10px;
+}
+
+.card-buttons button {
+  margin-top: 10px;
+}

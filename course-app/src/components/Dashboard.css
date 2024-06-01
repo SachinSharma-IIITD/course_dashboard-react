@@ -1,0 +1,31 @@
+.dashboard-container {
+    margin-left: 220px;
+    padding: 20px;
+  }
+  
+  .enrolled-course {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #fff;
+  }
+  
+  .enrolled-course h3 {
+    margin: 0 0 10px;
+  }
+  
+  .enrolled-course p {
+    margin: 0 0 10px;
+  }
+  
+  .enrolled-course button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

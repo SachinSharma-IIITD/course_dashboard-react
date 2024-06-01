@@ -1,0 +1,13 @@
+.container {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
