@@ -1,51 +1,124 @@
 .card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px;
   padding: 20px;
-  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transform: scale(1.02);
+}
+
+.card-title {
+  font-size: 2em;
+  color: #333;
+}
+
+.card-content {
   display: flex;
   justify-content: space-between;
 }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.card-thumbnail {
+  width: 50%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
 }
 
 .card-details {
   flex-grow: 1;
+  color: #666;
+}
+
+.card-details p {
+  margin-bottom: 10px;
+}
+
+.card-details .instructor {
+  font-style: italic;
+}
+
+.card-details .duration, .schedule {
+  font-weight: bold;
 }
 
 .card-buttons {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
-.card-buttons a,
-.card-buttons button {
-  margin-left: 10px;
-  text-decoration: none;
-  padding: 8px 16px;
+.card-buttons a, .card-buttons button {
+  margin: 5px 0;
+  padding: 10px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.card-buttons button {
-  background-color: #28a745;
-}
-
-.card-buttons button:last-child {
-  background-color: #dc3545;
-}
-
-.card-buttons button:hover {
+.card-buttons a:hover, .card-buttons button:hover {
   background-color: #0056b3;
 }
 
-.card-buttons button:last-child:hover {
-  background-color: #c82333;
+.completed-badge {
+  color: #4caf50;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: #e8f5e9;
+}
+.card-details .instructor {
+  font-style: italic;
+}
+
+.card-details .duration, .schedule {
+  font-weight: bold;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-buttons a, .card-buttons button {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-buttons a:hover, .card-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card-thumbnail {
+    width: 100%;
+  }
+
+  .card-content {
+    flex-direction: column;
+  }
+
+  .card-details, .card-buttons {
+    margin-top: 10px;
+  }
 }

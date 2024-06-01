@@ -1,51 +1,60 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import EnrollmentForm from './EnrollmentForm';
-import { enrollCourse } from '../features/courses/coursesSlice';
+import { useParams, Link } from 'react-router-dom';
+import useCourseActions from '../hooks/useCourseActions';
 import './CourseDetails.css';
 
 const CourseDetails = () => {
   const { courseId } = useParams();
-  const course = useSelector((state) =>
-    state.courses.courses.find(course => course.id === parseInt(courseId))
-  );
-  const [showForm, setShowForm] = useState(false);
-  const dispatch = useDispatch();
+  const {
+    course,
+    enrolled,
+    completed,
+    handleEnroll,
+    handleUnenroll,
+    handleMarkCompleted
+  } = useCourseActions(parseInt(courseId));
 
-  const handleEnroll = (student) => {
-    dispatch(enrollCourse({ courseId: course.id, student }));
-    setShowForm(false);
-  };
+  const [syllabusOpen, setSyllabusOpen] = useState(false);
 
   if (!course) {
-    return <div>Course not found!</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className="details-container">
+    <div className="course-details">
       <h2>{course.name}</h2>
-      <p><strong>Instructor:</strong> {course.instructor}</p>
-      <p><strong>Description:</strong> {course.description}</p>
-      <p><strong>Status:</strong> {course.enrollmentStatus}</p>
-      <p><strong>Duration:</strong> {course.duration}</p>
-      <p><strong>Schedule:</strong> {course.schedule}</p>
-      <p><strong>Location:</strong> {course.location}</p>
-      <p><strong>Prerequisites:</strong> {course.prerequisites.join(', ')}</p>
-      <div className="syllabus">
-        <h3>Syllabus</h3>
+      <p className="instructor"><strong>Instructor:</strong> {course.instructor}</p>
+      <p className="description">{course.description}</p>
+      <p className="duration"><strong>Duration:</strong> {course.duration}</p>
+      <p className="schedule"><strong>Schedule:</strong> {course.schedule}</p>
+      <p className="location"><strong>Location:</strong> {course.location}</p>
+      <p className="enrollmentStatus"><strong>Enrollment Status:</strong> {course.enrollmentStatus}</p>
+      <p className="prerequisites"><strong>Prerequisites:</strong> {course.prerequisites.join(', ')}</p>
+      <div onClick={() => setSyllabusOpen(!syllabusOpen)} style={{cursor: 'pointer'}}>
+        <h3>Syllabus {syllabusOpen ? '▲' : '▼'}</h3>
+      </div>
+      {syllabusOpen && (
         <ul>
-          {course.syllabus.map((week, index) => (
+          {course.syllabus.map((item, index) => (
             <li key={index}>
-              <strong>Week {week.week}:</strong> {week.topic} - {week.content}
+              <strong>Week {item.week}: {item.topic}</strong>
+              <p>{item.content}</p>
             </li>
           ))}
         </ul>
+      )}
+      <div className="course-actions">
+        {enrolled ? (
+          <>
+            <button onClick={handleUnenroll}>Unenroll</button>
+            {!completed && <button onClick={handleMarkCompleted}>Mark as Completed</button>}
+          </>
+        ) : (
+          <button onClick={handleEnroll}>Enroll</button>
+        )}
       </div>
-      <button onClick={() => setShowForm(!showForm)}>
-        {showForm ? 'Cancel' : 'Enroll'}
-      </button>
-      {showForm && <EnrollmentForm onEnroll={handleEnroll} />}
+      {completed && <p className="completed-badge">Completed</p>}
+      <Link to="/">Back to Courses</Link>
     </div>
   );
 };
