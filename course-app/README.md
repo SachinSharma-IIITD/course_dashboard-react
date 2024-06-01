@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Course Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based Course Management Dashboard application. The application allows users to view a list of courses, enroll or unenroll from courses, mark courses as completed, and view detailed information about each course. The app is fully responsive and provides a smooth user experience across different devices.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User authentication (login/logout)
+- View a list of available courses
+- Search courses by name or instructor
+- View detailed information about each course
+- Enroll in and unenroll from courses
+- Mark courses as completed
+- Responsive design for mobile and desktop
 
-### `npm start`
+## User Flow
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Login**: The user starts on the login screen. After entering valid credentials, the user is redirected to the dashboard.
+2. **Dashboard**: The user sees a list of enrolled courses with options to view details, mark as completed, or unenroll.
+3. **Course List**: The user can view all available courses, search for specific courses, and enroll in new courses.
+4. **Course Details**: The user can view detailed information about a course and enroll or unenroll from the course directly.
+5. **Logout**: The user can log out, ending the session.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Dependencies
 
-### `npm test`
+- React
+- Redux (for state management)
+- React Router (for routing)
+- Axios (for HTTP requests)
+- Node.js (for running the development server)
+- Express (for the backend API)
+- React-Redux (bindings for React and Redux)
+- react-router-dom (bindings for React Router)
+- Redux Toolkit (for easier Redux setup)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup and Installation
 
-### `npm run build`
+1. **Install frontend dependencies**:
+    ```bash
+    cd course-app
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install backend dependencies**:
+    ```bash
+    cd course-backend
+    npm install
+    cd ..
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Change the backend IP Address**:
+    Change the API IP Address in `course-app/src/features/courses/coursesSlice.js` to that of your machine.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running the Application
 
-### `npm run eject`
+1. **Start the backend server**:
+    ```bash
+    cd course-backend
+    node index.js
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Start the frontend development server**:
+    ```bash
+    cd course-app
+    npm start
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Access the application**:
+    Open your web browser and navigate to `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
