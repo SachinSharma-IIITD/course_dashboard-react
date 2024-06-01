@@ -26,6 +26,10 @@ const coursesSlice = createSlice({
         localStorage.setItem('enrolledCourses', JSON.stringify(state.enrolledCourses));
       }
     },
+    unenrollCourse: (state, action) => {
+      state.enrolledCourses = state.enrolledCourses.filter(course => course.courseId !== action.payload.courseId);
+      localStorage.setItem('enrolledCourses', JSON.stringify(state.enrolledCourses));
+    },
     markCourseCompleted: (state, action) => {
       const course = state.enrolledCourses.find(course => course.id === action.payload);
       if (course) {
@@ -49,7 +53,7 @@ const coursesSlice = createSlice({
   },
 });
 
-export const { enrollCourse, markCourseCompleted } = coursesSlice.actions;
+export const { enrollCourse, markCourseCompleted, unenrollCourse } = coursesSlice.actions;
 
 export default coursesSlice.reducer;
 

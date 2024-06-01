@@ -9,6 +9,7 @@ const CourseList = () => {
   const courses = useSelector((state) => state.courses.courses);
   const status = useSelector((state) => state.courses.status);
   const error = useSelector((state) => state.courses.error);
+  const enrolledCourses = useSelector((state) => state.courses.enrolledCourses);
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -45,7 +46,7 @@ const CourseList = () => {
         className="search-input"
       />
       {filteredCourses.map(course => (
-        <CourseCard key={course.id} course={course} />
+        <CourseCard key={course.id} course={course} enrolled={enrolledCourses.some((c) => c.courseId === course.id)}/>
       ))}
     </div>
   );

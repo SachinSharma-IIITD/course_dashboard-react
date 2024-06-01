@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../features/auth/authSlice';
 import './Login.css';
 
@@ -7,6 +8,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +18,7 @@ const Login = () => {
 
     console.log('Log in');
     dispatch(login({ user, token }));
+    navigate('/dashboard');
   };
 
   return (
